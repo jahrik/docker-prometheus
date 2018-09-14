@@ -13,6 +13,6 @@ push:
 	@docker push ${IMAGE}:latest
 
 deploy:
-	@docker stack deploy -c docker-compose.yml ${STACK}
+	@docker stack deploy --resolve-image=never -c docker-compose.yml ${STACK}
 
 .PHONY: all build push deploy
