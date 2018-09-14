@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+
+  prometheus:
+    image: jahrik/arm-prometheus:arm32v7
+    ports:
+      - 9090:9090
+    deploy:
+      mode: replicated
+      replicas: 1
