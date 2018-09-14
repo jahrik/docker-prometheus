@@ -27,6 +27,7 @@ scrape_configs:
       port: 9323
 
   - job_name: 'cadvisor'
+    metrics_path: '/containers'
     dns_sd_configs:
     - names:
       - 'tasks.cadvisor'
