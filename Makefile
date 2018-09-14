@@ -14,6 +14,7 @@ push:
 
 deploy:
 	@docker service rm ${STACK}_prometheus || true
+	@sleep 20
 	@docker stack deploy --resolve-image=never -c docker-compose.yml ${STACK}
 
 .PHONY: all build push deploy
