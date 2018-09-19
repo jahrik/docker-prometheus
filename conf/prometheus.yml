@@ -19,6 +19,10 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
+  - job_name: 'jenkins'
+    static_configs:
+      - targets: ['rocks:8080']
+
   - job_name: 'grafana'
     dns_sd_configs:
     - names:
