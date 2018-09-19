@@ -20,6 +20,7 @@ scrape_configs:
       - targets: ['localhost:9090']
 
   - job_name: 'jenkins'
+    metrics_path: '/prometheus'
     static_configs:
       - targets: ['rocks:8080']
 
