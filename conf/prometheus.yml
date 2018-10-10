@@ -51,3 +51,6 @@ scrape_configs:
       - 'tasks.node-exporter'
       type: 'A'
       port: 9100
+    static_configs:
+      - targets:
+        - shredder:9100
