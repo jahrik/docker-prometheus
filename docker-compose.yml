@@ -7,7 +7,7 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - /mnt/g1/prometheus:/prometheus
+      - /mnt/g2/prometheus:/prometheus
     deploy:
       mode: replicated
       replicas: 1
