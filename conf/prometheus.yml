@@ -54,4 +54,3 @@ scrape_configs:
     static_configs:
       - targets:
         - shredder:9100
-        - 10.224.0.160:60000
