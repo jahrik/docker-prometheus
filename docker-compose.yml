@@ -6,8 +6,8 @@ services:
     image: jahrik/arm-prometheus:arm32v7
     ports:
       - 9090:9090
-    # volumes:
-      # - /mnt/g2/prometheus:/prometheus
+    volumes:
+      - /mnt/g1/prometheus:/prometheus
     deploy:
       mode: replicated
       replicas: 1
