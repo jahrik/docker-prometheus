@@ -45,6 +45,11 @@ scrape_configs:
       type: 'A'
       port: 8080
 
+  - job_name: 'traefik'
+    static_configs:
+      - targets:
+        - rocks:8082
+
   - job_name: 'node-exporter'
     dns_sd_configs:
     - names:
