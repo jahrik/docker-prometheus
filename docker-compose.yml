@@ -8,6 +8,8 @@ services:
       - 9090:9090
     volumes:
       - /mnt/g1/prometheus:/prometheus
+    dns:
+      - bebop
     deploy:
       mode: replicated
       replicas: 1
