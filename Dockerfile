@@ -1,4 +1,4 @@
-FROM rycus86/prometheus:armhf
+FROM rycus86/prometheus:aarch64
 
 ENV WEAVE_TOKEN=none
 
