@@ -3,8 +3,8 @@ FROM rycus86/prometheus:aarch64
 ENV WEAVE_TOKEN=none
 
 # apk update && sudo apk upgrade && sudo apk add dhclient
-RUN apk update \
- && apk add dhclient
+# RUN apk update \
+#  && apk add dhclient
 
 COPY conf /etc/prometheus/
 
