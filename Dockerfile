@@ -2,6 +2,10 @@ FROM rycus86/prometheus:armhf
 
 ENV WEAVE_TOKEN=none
 
+# apk update && sudo apk upgrade && sudo apk add dhclient
+RUN apk update \
+ && apk add dhclient
+
 COPY conf /etc/prometheus/
 
 ENTRYPOINT [ "/etc/prometheus/docker-entrypoint.sh" ]
