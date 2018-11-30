@@ -3,7 +3,7 @@ version: '3.5'
 services:
 
   prometheus:
-    image: jahrik/arm-prometheus:arm32v7
+    image: jahrik/arm-prometheus:aarch64
     ports:
       - 9090:9090
     volumes:
