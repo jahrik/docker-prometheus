@@ -1,15 +1,18 @@
-FROM rycus86/prometheus:aarch64
+FROM arm64v8/golang
 
 ENV WEAVE_TOKEN=none
 
-# apk update && sudo apk upgrade && sudo apk add dhclient
-# RUN apk update \
-#  && apk add dhclient
+RUN git clone clone https://github.com/prometheus/prometheus.git
+RUN cd prometheus && \
+  make build && \
+  cp prometheus /bin/prometheus
 
+RUN mkdir /prometheus
 COPY conf /etc/prometheus/
 
-ENTRYPOINT [ "/etc/prometheus/docker-entrypoint.sh" ]
+VOLUME [ "/prometheus" ]
+EXPOSE 9090
+
+ENTRYPOINT [ "/bin/prometheus" ]
 CMD        [ "--config.file=/etc/prometheus/prometheus.yml", \
-             "--storage.tsdb.path=/prometheus", \
-             "--web.console.libraries=/etc/prometheus/console_libraries", \
-             "--web.console.templates=/etc/prometheus/consoles" ]
+             "--storage.tsdb.path=/prometheus", ]
