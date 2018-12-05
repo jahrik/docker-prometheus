@@ -12,4 +12,8 @@ RUN mkdir -p /prometheus
 VOLUME ["/prometheus"]
 EXPOSE 9090
 
-CMD [ "/bin/prometheus", "--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.path=/prometheus" ]
+COPY docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD [ "--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.path=/prometheus"]
