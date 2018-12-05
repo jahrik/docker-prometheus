@@ -1,8 +1,6 @@
 FROM arm64v8/golang
 
-ENV WEAVE_TOKEN=none
-
-RUN git clone clone https://github.com/prometheus/prometheus.git
+RUN git clone https://github.com/prometheus/prometheus.git
 RUN cd prometheus && \
   make build && \
   cp prometheus /bin/prometheus
