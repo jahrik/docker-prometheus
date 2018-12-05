@@ -9,11 +9,16 @@ global:
 #   - "swarm_node.rules.yml"
 #   - "swarm_task.rules.yml"
 
-# alerting:
-#   alertmanagers:
-#   - static_configs:
-#     - targets:
-#       - alertmanager:9093
+alerting:
+  alertmanagers:
+  # - static_configs:
+  #   - targets:
+  #     - alertmanager:9093
+    dns_sd_configs:
+    - names:
+      - 'tasks.alertmanager'
+      type: 'A'
+      port: 9093
 
 scrape_configs:
   - job_name: 'prometheus'
