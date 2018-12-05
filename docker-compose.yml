@@ -15,8 +15,6 @@ services:
     dns:
       - bebop
     deploy:
-      mode: replicated
-      replicas: 1
       placement:
         constraints:
           - node.labels.arch == aarch64
