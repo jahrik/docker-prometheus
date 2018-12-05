@@ -12,6 +12,6 @@ RUN mkdir -p /prometheus
 VOLUME ["/prometheus"]
 EXPOSE 9090
 
-CMD ["/bin/prometheus", \
-  "--config.file=/etc/prometheus/prometheus.yml", \
-  "--storage.tsdb.path=/prometheus",]
+CMD "/bin/prometheus \
+  --config.file=/etc/prometheus/prometheus.yml \
+  --storage.tsdb.path=/prometheus"
