@@ -5,9 +5,9 @@ global:
   external_labels:
     monitor: 'arm_swarm'
 
-# rule_files:
-#   - "swarm_node.rules.yml"
-#   - "swarm_task.rules.yml"
+rule_files:
+  - "swarm_node.rules.yml"
+  - "swarm_task.rules.yml"
 
 alerting:
   alertmanagers:
