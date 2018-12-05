@@ -11,7 +11,7 @@ global:
 
 alerting:
   alertmanagers:
-    alertmanager_config:
+    - alertmanager_config:
       dns_sd_configs:
       - names:
         - 'tasks.alertmanager'
