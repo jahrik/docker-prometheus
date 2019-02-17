@@ -22,8 +22,11 @@ scrape_configs:
 
   - job_name: 'jenkins'
     metrics_path: '/prometheus'
-    static_configs:
-      - targets: ['rocks:8080']
+    dns_sd_configs:
+    - names:
+      - 'tasks.grafana'
+      type: 'A'
+      port: 8080
 
   - job_name: 'grafana'
     dns_sd_configs:
