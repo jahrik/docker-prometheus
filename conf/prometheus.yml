@@ -24,7 +24,7 @@ scrape_configs:
     metrics_path: '/prometheus'
     dns_sd_configs:
     - names:
-      - 'tasks.grafana'
+      - 'tasks.jenkins'
       type: 'A'
       port: 8080
 
