@@ -4,8 +4,8 @@ services:
 
   prometheus:
     image: jahrik/arm-prometheus:aarch64
-    ports:
-      - 9090:9090
+    # ports:
+    # - 9090:9090
     volumes:
       - /mnt/g1/prometheus:/prometheus
     networks:
@@ -15,6 +15,12 @@ services:
     dns:
       - bebop
     deploy:
+      labels:
+        traefik.enable: 1
+        traefik.port: 9090
+        traefik.backend: prometheus
+        traefik.docker.network: traefik
+        traefik.frontend.rule: Host:prometheus.homelab.business
       placement:
         constraints:
           - node.labels.arch == aarch64
