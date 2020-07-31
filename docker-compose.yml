@@ -17,7 +17,7 @@ services:
     deploy:
       labels:
         traefik.enable: 1
-        traefik.port: 9090
+        traefik.http.services.prometheus.loadbalancer.server.port: 9090
         traefik.backend: prometheus
         traefik.docker.network: traefik
         traefik.frontend.rule: Host:prometheus.homelab.business
