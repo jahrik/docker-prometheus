@@ -3,35 +3,36 @@ version: '3.5'
 services:
 
   prometheus:
-    image: jahrik/arm-prometheus:aarch64
-    # ports:
-    # - 9090:9090
+    image: jahrik/prometheus:${TAG}
+    ports:
+      - 9090:9090
     volumes:
       - /mnt/g1/prometheus:/prometheus
     networks:
       - monitor
-      - elk
-      - traefik
-    dns:
-      - bebop
-    deploy:
-      labels:
-        traefik.enable: 1
-        traefik.http.services.prometheus.loadbalancer.server.port: 9090
-        traefik.backend: prometheus
-        traefik.docker.network: traefik
-        traefik.frontend.rule: Host:prometheus.homelab.business
-      placement:
-        constraints:
-          - node.labels.arch == aarch64
+      # - elk
+      # - traefik
+#     dns:
+#       - bebop
+#     deploy:
+#       labels:
+#         traefik.enable: 1
+#         traefik.http.services.prometheus.loadbalancer.server.port: 9090
+#         traefik.backend: prometheus
+#         traefik.docker.network: traefik
+#         traefik.frontend.rule: Host:prometheus.homelab.business
+#       placement:
+#         constraints:
+#           - node.labels.arch == aarch64
 
 networks:
-  elk:
-    driver: overlay
-    external: true
-  traefik:
-    driver: overlay
-    external: true
+#   elk:
+#     driver: overlay
+#     external: true
+#   traefik:
+#     driver: overlay
+#     external: true
   monitor:
     name: monitor
     driver: overlay
+    external: true

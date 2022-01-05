@@ -1,4 +1,9 @@
-FROM arm64v8/golang
+ARG TAG=
+ARG ARCH=
+FROM ${ARCH}/golang
+
+RUN apt-get update && \
+  apt-get install npm -y
 
 RUN git clone https://github.com/prometheus/prometheus.git
 RUN cd prometheus && \
