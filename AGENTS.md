@@ -29,7 +29,7 @@ make deploy  # docker stack deploy -c docker-compose.yml monitor
 
 ## Local testing
 
-Docker is not installed on this machine — `docker` is a Podman shim, so `make build` works as-is. Verify with:
+Build and verify locally:
 
 ```bash
 docker run --rm -d -p 9090:9090 --name prom-test jahrik/prometheus:latest
