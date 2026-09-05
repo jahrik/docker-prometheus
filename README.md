@@ -11,7 +11,7 @@ docker pull jahrik/prometheus
 ## Build
 
 ```bash
-make build
+just build
 ```
 
 The Prometheus version is pinned in the Dockerfile `FROM` line (`prom/prometheus:vX.Y.Z`) — bump it there to upgrade. The official image is multi-arch, so no per-architecture build args are needed.
@@ -34,7 +34,7 @@ docker run -d -p 9090:9090 -v prometheus-data:/prometheus jahrik/prometheus
 `docker-compose.yml` deploys onto the external `monitor` overlay network with TSDB data at `/mnt/g1/prometheus`:
 
 ```bash
-make deploy
+just deploy
 ```
 
 ## CI
